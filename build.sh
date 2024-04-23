@@ -9,7 +9,7 @@ CMAKE_COMMAND="cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1 --log-level=STATUS"
 
 ALL_ARGS=("$@")
 BUILD_ARGS=()
-MAKE_ARGS=(-j $CPU_CORES)
+MAKE_ARGS=()
 MAKE=make
 
 echo "$0 ${ALL_ARGS[@]}"
@@ -254,7 +254,7 @@ function main
     make)
       cd ./src/observer/sql/parser && bash gen_parser.sh && cd ../../../../
       echo "gen parser finish"
-      cd ./build && make -j8 && cd ../
+      cd ./build && make -j4 && cd ../
       echo "make finish"
       ;;
     *)
